@@ -2,6 +2,8 @@
 package main
 
 import (
+	"os"
+	"bufio"
 	"fmt"
 	m "math" // Math library with local alias m.
 	"strconv"
@@ -45,8 +47,6 @@ func main() {
 	// strings()
 	// types()
 	// typeConvert()
-	sum, prod := multiReturn(1, 2)
-	fmt.Printf("sum is %v, prod is %v\n", sum, prod)
 	// a := make([]int, 3)
 	// passingArrays(a, 1)
 	// mapExample()
@@ -54,26 +54,50 @@ func main() {
 	// sliceFunc()
 	// forLoop()
 	// array := [...]int{1, 2, 3}
+}
 
-	// p := Num{1}
-	// p.Printer()
-	// s := bufio.NewScanner(os.Stdin)
-	// for s.Scan() {
-	//     fmt.Println("line", s.Text())
-	// }
+//StdioHandling
+func StdioHandling() {
+	s := bufio.NewScanner(os.Stdin)
+	for s.Scan() {
+	    fmt.Println("line", s.Text())
+	}
+}
+
+// INTERFACES
+
+//learnInterfaces
+func learnInterfaces() {
+	// INTERFACES
+	p := Num{1}
+	p.Print()
+	p.Type()
+	printDat(p)
+}
+
+//printDat
+func printDat(p Printer) {
+	p.Print()
+	p.Type()
 }
 
 type Printer interface {
 	Print()
+	Type()
 }
 
 type Num struct {
 	x int
 }
 
-//funcName
-func (i Num) Printer() {
+func (i Num) Print() {
 	fmt.Printf("i is %v\n", i.x)
+}
+// INTERFACES
+
+//Type
+func (i Num) Type(){
+	fmt.Printf("i's type is %T\n", i.x)
 }
 
 // usingImports example of how using an imported library
@@ -132,6 +156,12 @@ func typeConvert() {
 	// note that string conversion requires "strconv"
 	st := strconv.Itoa(it)
 	fmt.Printf("value st is is %v, type is %T\n", st, st)
+}
+
+//multiReturnTest demos how to accept multiple return statments
+func multiReturnTest() {
+	sum, prod := multiReturn(1, 2)
+	fmt.Printf("sum is %v, prod is %v\n", sum, prod)
 }
 
 // multiReturn utilizes multiple returned values
