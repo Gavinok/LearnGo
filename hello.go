@@ -69,7 +69,11 @@ func StdioHandling() {
 //learnInterfaces
 func learnInterfaces() {
 	// INTERFACES
-	p := Num{1}
+	// Struct Declaration
+	// name := StructType{value}
+	// name := StructType{x: value}
+	// name := StructType{x: value, y: value2}
+	p := Num{x: 1}
 	p.Print()
 	p.Type()
 	printDat(p)
