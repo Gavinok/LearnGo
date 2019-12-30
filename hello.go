@@ -45,14 +45,35 @@ func main() {
 	// strings()
 	// types()
 	// typeConvert()
-	// sum, prod := multiReturn(1, 2)
-	// fmt.Printf("sum is %v, prod is %v\n", sum, prod)
+	sum, prod := multiReturn(1, 2)
+	fmt.Printf("sum is %v, prod is %v\n", sum, prod)
 	// a := make([]int, 3)
 	// passingArrays(a, 1)
 	// mapExample()
 	// arrayExample()
-	sliceFunc()
+	// sliceFunc()
 	// forLoop()
+	// array := [...]int{1, 2, 3}
+
+	// p := Num{1}
+	// p.Printer()
+	// s := bufio.NewScanner(os.Stdin)
+	// for s.Scan() {
+	//     fmt.Println("line", s.Text())
+	// }
+}
+
+type Printer interface {
+	Print()
+}
+
+type Num struct {
+	x int
+}
+
+//funcName
+func (i Num) Printer() {
+	fmt.Printf("i is %v\n", i.x)
 }
 
 // usingImports example of how using an imported library
@@ -158,6 +179,8 @@ func sliceFunc() {
 	// make(type, length[, capacity]) // capacity is optional
 	a := make([]int, 2)  // [ 0, 0 ]
 	a2 := []int{1, 2, 3} // [ 1, 2, 3 ]	// Note: [] for slice and  [...] makes a array
+	var a3 []int         // this is the perfered way to create an empty slice
+	fmt.Printf("a3 is %v\n", a3)
 	fmt.Printf("a2 is %v\n", a2)
 	b := a   // b and a now point to the same array
 	a[0] = 1 // since a and b point to the same array they both are changed
@@ -179,11 +202,11 @@ func sliceFunc() {
 
 	// SUBSLICES
 	// a = [1, 4, 3, 2, 9, 1, 2, 3]
-	b = a[:2] // turn b into a subslice of a aka [1, 4]
+	b = a[:2]  // turn b into a subslice of a aka [1, 4]
 	b = a[1:3] // turn b into a subslice of a from index 1 to the 3rd location aka [4, 3]
 	// removing an element from the middle of a slice
 	a = append(a[:2], a[3:]...) // removing the 3rd element requires the use of append
-	fmt.Printf("a is %v\n", a) // a = [1 4 2 9 1 2 3]
+	fmt.Printf("a is %v\n", a)  // a = [1 4 2 9 1 2 3]
 }
 
 // forLoop is a Simple demo of the many for loops in go.
