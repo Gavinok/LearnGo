@@ -2,10 +2,10 @@
 package main
 
 import (
-	"os"
 	"bufio"
 	"fmt"
 	m "math" // Math library with local alias m.
+	"os"
 	"strconv"
 )
 
@@ -60,7 +60,7 @@ func main() {
 func StdioHandling() {
 	s := bufio.NewScanner(os.Stdin)
 	for s.Scan() {
-	    fmt.Println("line", s.Text())
+		fmt.Println("line", s.Text())
 	}
 }
 
@@ -93,10 +93,11 @@ type Num struct {
 func (i Num) Print() {
 	fmt.Printf("i is %v\n", i.x)
 }
+
 // INTERFACES
 
 //Type
-func (i Num) Type(){
+func (i Num) Type() {
 	fmt.Printf("i's type is %T\n", i.x)
 }
 
